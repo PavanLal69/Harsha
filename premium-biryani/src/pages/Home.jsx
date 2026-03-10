@@ -92,7 +92,7 @@ export default function Home() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3, delay: 0.05 }}
-                            className="text-lg md:text-xl text-text-main/70 mb-4 max-w-2xl mx-auto"
+                            className="text-lg md:text-xl text-text-main/90 font-medium mb-4 max-w-2xl mx-auto drop-shadow-sm"
                         >
                             {currentItem.desc}
                         </motion.p>
@@ -108,7 +108,7 @@ export default function Home() {
                         rotate: heroRotate,
                         opacity: heroOpacity,
                     }}
-                    className="fixed top-[30%] left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] md:w-[700px] md:h-[700px] pointer-events-none z-30 flex items-center justify-center mix-blend-multiply"
+                    className="fixed top-[52%] sm:top-[30%] left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] md:w-[700px] md:h-[700px] pointer-events-none z-20 flex items-center justify-center mix-blend-multiply"
                 >
                     {/* Soft shadow */}
                     <div className="absolute bottom-[-10px] w-[60%] h-[50px] bg-black/15 rounded-[50%] blur-2xl z-0" />
