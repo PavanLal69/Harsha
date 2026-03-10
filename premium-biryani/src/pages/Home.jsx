@@ -71,7 +71,7 @@ export default function Home() {
                 {/* Hero Text */}
                 <motion.div
                     style={{ y: textY, opacity: textOpacity }}
-                    className="relative z-10 text-center px-4 max-w-4xl mx-auto"
+                    className="relative z-50 text-center px-4 max-w-4xl mx-auto"
                 >
                     <AnimatePresence mode="wait">
                         <motion.h1
@@ -108,7 +108,7 @@ export default function Home() {
                         rotate: heroRotate,
                         opacity: heroOpacity,
                     }}
-                    className="fixed top-[30%] left-1/2 -translate-x-1/2 w-[550px] h-[550px] md:w-[700px] md:h-[700px] pointer-events-none z-30 flex items-center justify-center mix-blend-multiply"
+                    className="fixed top-[30%] left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] md:w-[700px] md:h-[700px] pointer-events-none z-30 flex items-center justify-center mix-blend-multiply"
                 >
                     {/* Soft shadow */}
                     <div className="absolute bottom-[-10px] w-[60%] h-[50px] bg-black/15 rounded-[50%] blur-2xl z-0" />
