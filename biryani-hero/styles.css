@@ -1,0 +1,336 @@
+:root {
+    --primary-red: #E63946;
+    --primary-red-hover: #D62828;
+    --bg-light: #F5F5F5;
+    --text-main: #1D3557;
+    --text-muted: #5C677D;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    overflow-x: hidden;
+    overflow-y: hidden; /* Hide scroll to keep it like a clean hero section */
+}
+
+/* Base Layout Constraints */
+.hero {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1.5rem 6%;
+}
+
+/* ==== Navigation Bar ==== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--primary-red);
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3.5rem;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-red);
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.icon-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    color: var(--text-main);
+}
+
+.icon-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    color: var(--primary-red);
+}
+
+.cart-btn {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--primary-red);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid var(--bg-light);
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.4);
+}
+
+/* ==== Hero Typography & Content ==== */
+.hero-content {
+    text-align: center;
+    max-width: 850px;
+    margin: 3.5rem auto 0;
+    z-index: 10;
+    position: relative;
+    animation: fadeUp 1s ease-out forwards;
+}
+
+.headline {
+    font-size: 4.8rem;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+    color: var(--text-main);
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* ==== Primary CTA Button ==== */
+.cta-btn {
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    padding: 1.2rem 3.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 16px; /* User requested 16px radius */
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(230, 57, 70, 0.35);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    transform: skewX(-20deg);
+    transition: 0.5s;
+}
+
+.cta-btn:hover {
+    background: var(--primary-red-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(230, 57, 70, 0.5);
+}
+
+.cta-btn:hover::after {
+    left: 150%;
+}
+
+/* ==== Hero Image & Carousel ==== */
+.hero-image-container {
+    position: absolute;
+    bottom: -20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65vw;
+    max-width: 1000px;
+    height: 65vw;
+    max-height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    pointer-events: none; /* Let clicks pass through if needed, though buttons need pointer-events */
+}
+
+.biryani-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* Crucial: removes the generated white background perfectly on F5F5F5 */
+    filter: drop-shadow(0 50px 70px rgba(0,0,0,0.18)) contrast(1.05) saturate(1.1);
+    transition: transform 0.2s ease-out; /* For parallax JS */
+    will-change: transform;
+}
+
+/* Carousel Nav Arrows */
+.nav-arrow {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    color: var(--text-main);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 15;
+    pointer-events: auto; /* Re-enable pointer events for buttons inside the container */
+}
+
+.nav-arrow:hover {
+    background: var(--white);
+    transform: translateY(-50%) scale(1.15);
+    color: var(--primary-red);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.left-arrow {
+    left: 12%;
+}
+
+.right-arrow {
+    right: 12%;
+}
+
+/* ==== Floating Anti-Gravity Ingredients ==== */
+.floating-ingredients {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2; /* Below the text, above the background */
+}
+
+.ingredient {
+    position: absolute;
+    font-size: 3.5rem; /* Size of emojis */
+    filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.12)) saturate(1.2);
+    animation: float 5s ease-in-out infinite alternate;
+    animation-delay: var(--delay);
+    will-change: transform;
+    opacity: 0.95;
+    user-select: none;
+    transition: transform 0.1s linear; /* Smooth micro-parallax */
+}
+
+/* Custom CSS Shapes for elements that don't have perfect emojis */
+.i-saffron {
+    width: 8px;
+    height: 45px;
+    background: linear-gradient(to bottom, #E3000F 20%, #FF7B00 80%);
+    border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+    box-shadow: 0 10px 20px rgba(227, 0, 15, 0.2);
+    transform-origin: center;
+}
+
+.i-cinnamon {
+    width: 18px;
+    height: 70px;
+    background: linear-gradient(to right, #8b5a2b, #a0522d, #8b5a2b);
+    border-radius: 6px;
+    box-shadow: inset -4px 0 10px rgba(0,0,0,0.3), 0 20px 30px rgba(0,0,0,0.15);
+    border-left: 2px solid #5c3a21;
+}
+
+.i-cardamom {
+    width: 25px;
+    height: 40px;
+    background: linear-gradient(135deg, #a4b47d, #8F9E6C);
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    box-shadow: inset -4px -4px 10px rgba(0,0,0,0.2), 0 20px 30px rgba(0,0,0,0.15);
+    border-top: 1px solid #c7d6a1;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(var(--r));
+    }
+    100% {
+        transform: translateY(var(--y)) rotate(calc(var(--r) + 12deg));
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .headline { font-size: 4rem; }
+    .nav-links { gap: 2rem; padding: 1rem 2rem; }
+}
+
+@media (max-width: 768px) {
+    .headline { font-size: 3rem; }
+    .hero { padding: 1rem 4%; }
+    .nav-links { display: none; } /* Hide on mobile for simplicity */
+    .hero-image-container { width: 90vw; height: 90vw; bottom: -10vh; }
+    .nav-arrow { width: 45px; height: 45px; top: 25%; }
+}
