@@ -50,7 +50,7 @@ export default function Home() {
             <Navbar />
 
             {/* ==================== HERO SECTION ==================== */}
-            <section id="home" className="relative min-h-[110vh] flex flex-col items-center justify-start pt-28 overflow-hidden">
+            <section id="home" className="relative min-h-[110vh] flex flex-col items-center justify-start pt-28 overflow-hidden bg-white">
 
                 {/* Background Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[100px] -z-10 pointer-events-none" />
@@ -108,7 +108,7 @@ export default function Home() {
                         rotate: heroRotate,
                         opacity: heroOpacity,
                     }}
-                    className="fixed top-[30%] left-1/2 -translate-x-1/2 w-[550px] h-[550px] md:w-[700px] md:h-[700px] pointer-events-none z-30 flex items-center justify-center"
+                    className="fixed top-[30%] left-1/2 -translate-x-1/2 w-[550px] h-[550px] md:w-[700px] md:h-[700px] pointer-events-none z-30 flex items-center justify-center mix-blend-multiply"
                 >
                     {/* Soft shadow */}
                     <div className="absolute bottom-[-10px] w-[60%] h-[50px] bg-black/15 rounded-[50%] blur-2xl z-0" />
@@ -157,7 +157,7 @@ export default function Home() {
                             {/* Image fades in as hero fades out */}
                             <motion.div
                                 style={{ opacity: cardImageOpacity }}
-                                className="w-full flex-1 relative flex items-center justify-center"
+                                className="w-full flex-1 relative flex items-center justify-center mix-blend-multiply"
                             >
                                 <div className="absolute bottom-0 w-40 h-10 bg-black/10 rounded-[50%] blur-xl" />
                                 <img
@@ -191,7 +191,7 @@ export default function Home() {
                                     document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
                                 }}
                             >
-                                <div className="w-full flex-1 relative flex items-center justify-center">
+                                <div className="w-full flex-1 relative flex items-center justify-center mix-blend-multiply">
                                     <div className="absolute bottom-0 w-40 h-10 bg-black/10 rounded-[50%] blur-xl" />
                                     <img src={item.image} alt={item.name} className="relative w-48 h-48 object-contain mix-blend-multiply z-10" />
                                 </div>
